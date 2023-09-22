@@ -5,6 +5,29 @@ from tkinter import simpledialog
 
 
 
+def newGame():
+    global player, players
+    
+
+    player = random.choice(players)
+
+    label.config(text= player + "'s turn", font=('Arial', 25))
+    
+
+    for x in range(3):
+        for y in range(3):
+            buttons[x][y]['text'] = ""
+    
+    
+
+    
+   
+
+
+
+
+
+
 
 
 def askUsernames():
@@ -42,6 +65,16 @@ window.wm_deiconify()
 window.attributes("-topmost", True)
     
 buttons = [[0,0,0], [0,0,0],[0,0,0]]
+
+label = Label(text= player + "'s turn", font=('Arial', 25))
+label.pack(side= 'top')
+
+resetBtn = Button(text="New game", font=('Arial', 25), command=newGame)
+resetBtn.pack(side='bottom')
+
+frame = Frame(window)
+frame.pack()
+
 
 
 
